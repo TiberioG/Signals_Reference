@@ -1,14 +1,11 @@
 \documentclass[12pt,a4paper,]{article}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}  
 \usepackage[italian]{babel}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{float}
 \usepackage{hyperref}
-\usepackage{graphicx}
 \usepackage{epstopdf}
 \title{Fundamentals of Signals and Transmission Reference}
 \date{}
@@ -23,12 +20,13 @@ H(f) = \int_{-\infty}^{\infty} \! h(\tau) e^{-j2\pi ft} \, \mathrm{d}\tau
 \begin{equation}
 h(t) = \int_{-\infty}^{\infty} \! H(f) e^{j2\pi ft} \, \mathrm{d}f
 \end{equation}
-\section{Properties}
+\subsection{Properties}
  \begin{itemize}
- \item  \textbf{Duality}: $ x(t) \longleftrightarrow X(f)$ $ X(f)\longleftrightarrow x(t)$
-  \item \textbf{Scaling}: $ x(\alpha t)  \longleftrightarrow \frac{1}{|\alpha|}X(\frac{f}{\alpha})$
- 
- \end{itemize}
+ \item  \textbf{Dualità}: $ x(t) \longleftrightarrow X(f)$ $ X(f)\longleftrightarrow x(t)$
+ \item \textbf{Scala}: $ x(\alpha t)  \longleftrightarrow \frac{1}{|\alpha|}X(\frac{f}{\alpha})$
+ \item \textbf{Simmetria}
+  \end{itemize}
+ \subsection{Trasformate notevoli}
 \section{Energy}
 \begin{equation}
 E= \int_{-\infty}^{\infty} \! |x(t)|^{2}\, \mathrm{d}t = \int_{-\infty}^{\infty} \! |x(f)|^{2}\, \mathrm{d}f
@@ -40,8 +38,10 @@ E= \int_{-\infty}^{\infty} \! |x(t)|^{2}\, \mathrm{d}t = \int_{-\infty}^{\infty}
  
  \section{Serie di Fourier}
  \begin{equation}
- sum_{n=-\infty}^{\infty} 
- \end{equation}
+ \sum_{n=-\infty}^{\infty}  C_{n} e^{j2\pi\frac{n}{T_{0}}t}
+  \end{equation}
+  $C_{n}$ sono i coefficienti di Fourier
+  
  
  
  
