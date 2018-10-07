@@ -10,10 +10,41 @@
 \usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{epstopdf}
-\title{Fondamenti di Segnali e Trasmissione Reference}
+\title{Fundamentals of Signals and Transmission Reference}
 \date{}
 \author{}
 \begin{document}
 \maketitle
-
+\section{Trasformata di Fourier}
+\subsection{Definition}
+\begin{equation}
+H(f) = \int_{-\infty}^{\infty} \! h(\tau) e^{-j2\pi ft} \, \mathrm{d}\tau
+\end{equation}
+\begin{equation}
+h(t) = \int_{-\infty}^{\infty} \! H(f) e^{j2\pi ft} \, \mathrm{d}f
+\end{equation}
+\section{Properties}
+ \begin{itemize}
+ \item  \textbf{Duality}: $ x(t) \longleftrightarrow X(f)$ $ X(f)\longleftrightarrow x(t)$
+  \item \textbf{Scaling}: $ x(\alpha t)  \longleftrightarrow \frac{1}{|\alpha|}X(\frac{f}{\alpha})$
+ 
+ \end{itemize}
+\section{Energy}
+\begin{equation}
+E= \int_{-\infty}^{\infty} \! |x(t)|^{2}\, \mathrm{d}t = \int_{-\infty}^{\infty} \! |x(f)|^{2}\, \mathrm{d}f
+\end{equation}
+\section{Power}
+\begin{equation}
+\lim_{T\to\infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} \! |x(t)|^{2}\, \mathrm{d}t 
+\end{equation}
+ 
+ \section{Serie di Fourier}
+ \begin{equation}
+ sum_{n=-\infty}^{\infty} 
+ \end{equation}
+ 
+ 
+ 
+ 
+ 
 \end{document}
