@@ -13,6 +13,9 @@
 \author{}
 \begin{document}
 \maketitle
+\section{funzioni notevoli}
+\subsection{Sinc}
+ampio 1, zeri spaziati @ 
 \section{Convoluzione}
 \subsection{Definizione}
 
@@ -25,12 +28,14 @@ convolvere qualcosa con impulso => ritardare o anticipare della tau. dell'impuls
 \begin{equation}
 x(t) \ast A \delta(t-\tau) = Ax(t-\tau)
 \end{equation}
+convolvere con impulso 
 convolvere impulso con se se setesso => raddoppiare freq. impulso \\
 ATTENZIONE Convoluzione =! Moltiplicazione
 \begin{equation}
 x(t)\cdot\delta(t-\tau) = x(\tau)\cdot\delta(t-\tau)
 \end{equation}
-
+Convolvere con una fase $e^{-j2\pi f t}$
+Moltiplicare per un rettangolo significa....
 \section{Trasformata di Fourier}
 \subsection{Definition}
 \begin{equation}
@@ -45,6 +50,11 @@ H(f) = \sum_{-\infty}^{\infty} \! h(nT) \,  e^{-j2\pi fnT} \,
 \end{equation}
 \begin{equation}
 h(nT) =T  \sum_{-\frac{1}{2T}}^{\frac{1}{2T}} \! H(f) \, e^{j2\pi fnT} \,
+\end{equation}
+
+Trasformata di un segnale campionato (periodico) è la ripetizione nelle frequenze della trasformata del segnale in banda base, spaziando di fc = INV(Tc)
+\begin{equation}
+X_{c} (f) = \frac{X(f)}{T_{c}} \ast \sum_{k = -\infty}^{+\infty} \delta \left(t-\frac{k}{T_{c}}\right)
 \end{equation}
 \subsection{altre notazioni}
 Esprimere la FT in modulo e fase (essendo una funzione complessa nella variabile f)
@@ -72,7 +82,16 @@ f(t) = \int _{-\infty}^\infty A(f)\ e^{ j\left(2\pi f t +\phi (f)\right)}\,df
   \end{itemize}
  \subsection{Trasformate notevoli}
  mettere il ritardo di tempo fatto bene|
- 
+
+\begin{equation}
+  \cos(2\pi A t) \longleftrightarrow \frac{1}{2} \delta(f-A) + \frac{1}{2} \delta(f+A)
+\end{equation}
+\begin{equation}
+  \cos(2\pi A t + \phi) \longleftrightarrow \frac{1}{2} \delta(f-A)e^{-j\phi} + \frac{1}{2} \delta(f+A)e^{j\phi}
+\end{equation}
+   \begin{equation}
+ \sin(2\pi A t) \longleftrightarrow \frac{1}{2j} \delta(f-A) - \frac{1}{2j} \delta(f+A)
+  \end{equation}
  \begin{equation}
  \operatorname{sinc}(t) = \frac{\sin(\pi t)}{\pi t}  \longleftrightarrow  rect(f) 
   \end{equation}
@@ -80,7 +99,10 @@ f(t) = \int _{-\infty}^\infty A(f)\ e^{ j\left(2\pi f t +\phi (f)\right)}\,df
  \operatorname{sinc}(tA) =  \frac{\sin(\pi tA)}{\pi tA}  \longleftrightarrow  \frac{1}{|A|} rect\left(\frac{f}{A}\right)
  \end{equation}
   \begin{equation}
- \operatorname{sinc}^{2}(t)   \longleftrightarrow  tripulse(f)
+ \operatorname{sinc}^{2}(t)   \longleftrightarrow  tripulse(\frac{f}{2})
+ \end{equation}
+ \begin{equation}
+ \operatorname{sinc}^{2}(tA)   \longleftrightarrow \frac{1}{A}  tripulse(\frac{f}{2A})
   \end{equation}
  Treno di impulsi
  \begin{equation}
@@ -89,7 +111,7 @@ f(t) = \int _{-\infty}^\infty A(f)\ e^{ j\left(2\pi f t +\phi (f)\right)}\,df
  
  \section{Cross-correlazione}
  \begin{align}
- R_{xy} & \, \stackrel{\mathrm{def}}{=}  \int_{-\infty}^{\infty} x(t+\tau)\ y^*(t) \,dt \\
+ R_{xy} (\tau) & \, \stackrel{\mathrm{def}}{=}  \int_{-\infty}^{\infty} x(t+\tau)\ y^*(t) \,dt \\
  & = \int_{-\infty}^{\infty} X(f)\ Y^*(f)\ e^{j2\pi f \tau} \,df
  \end{align}
 \section{Energy}
@@ -99,15 +121,19 @@ E= \int_{-\infty}^{\infty} \! |x(t)|^{2}\, \mathrm{d}t = \int_{-\infty}^{\infty}
 \begin{equation}
 E_{n}= \sum_{n= -\infty}^{\infty} \! |x(nT)|^{2}\, = T \int_{\frac{1}{T}} \! |X(f)|^{2}\, \mathrm{d}f mettere X tilde
 \end{equation}
+L'energia è pari all'autocorrelazione valutata in 0\\
 Leame tra energia segnale continuo e corrispettivo campionato:
 \section{Power}
+power spectral density (PSD); this describes how power of a signal or time series is distributed over frequency
 \begin{equation}
 \lim_{T\to\infty} \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} \! |x(t)|^{2}\, \mathrm{d}t 
 \end{equation}
  \paragraph{Potenza segnale discreto}
- \begin{equation}
- \frac{Energia \: in \: un\:  periodo}{durata \: di \: un \: periodo}
- \end{equation}
+ $\frac{Energia \: in \: un\:  periodo}{durata \: di \: un \: periodo}$
+ \paragraph{Potenza sinusoidi}
+ $P = |Ampiezza|^{2}$
+  \paragraph{Potenza COsinusoidi}
+ $P = \frac{1}{2} |Ampiezza|^2$
  \section{Serie di Fourier}
  \begin{equation}
  \sum_{n=-\infty}^{\infty}  C_{n} e^{j2\pi\frac{n}{T_{0}}t}
